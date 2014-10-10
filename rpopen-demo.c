@@ -12,8 +12,9 @@ main(int argc, char **argv)
 	FILE *fp;
 	char buf[BSIZE];
 
-	if ((fp = rpopen(0, 0, "ls -lL /etc")) != 0) {
+	if ((fp = rpopen(0, 0, "ls -lL /home/niko")) != 0) {
 		/* read the output from the command */
+		//printf("socket opened: %d\n");
 
 		while (fgets(buf, BSIZE, fp) != 0)
 			fputs(buf, stdout);
