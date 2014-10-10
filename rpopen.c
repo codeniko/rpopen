@@ -76,6 +76,11 @@ rpopen(char *host, int port, char *cmd)
 		return 0;
 	}
 
+	if (cmd == 0 || strlen(cmd) == 0) {
+		fprintf(stderr, "Error, command not entered or empty command given\n");
+		return 0;
+	}
+
 	int sock = createSocket();
 	if (!sock)
 		return 0;
