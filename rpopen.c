@@ -10,6 +10,7 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <unistd.h>
+#include "rpopen.h"
 
 int createSocket() {
 	int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -45,8 +46,7 @@ int createConnection(char *host, int port, int sock) {
 	return 1;
 }
 
-	FILE *
-rpopen(char *host, int port, char *cmd)
+FILE * rpopen(char *host, int port, char *cmd)
 {
 	/* if host = 0 or blank, use environemnt variable PHOST*/
 	if (host == 0 || strlen(host) == 0) {

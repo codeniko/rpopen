@@ -3,16 +3,16 @@
 */
 
 #include <stdio.h>
+#include "rpopen.h" /* be sure to include the header file*/
 #define BSIZE 1024
 
-FILE *rpopen(char *host, int port, char *cmd);
-
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	FILE *fp;
 	char buf[BSIZE];
 
-	if ((fp = rpopen("127.0.0.1", 12345, "ls -lL /etc")) != 0) {
+	/* call the rpopen function here*/
+	if ((fp = rpopen("localhost", 12345, "ls -lL /etc")) != 0) {
 		/* read the output from the command */
 		//printf("socket opened: %d\n");
 
